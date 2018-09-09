@@ -10,14 +10,13 @@ package:
 source:
   fn: KernSmooth_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/KernSmooth_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/KernSmooth_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
   sha256: 8b72d23ed121a54af188b2cda4441e3ce2646359309885f6455b82c0275210f6
 
 build:
   merge_build_host: True  # [win]
-  number: 1
-  skip: true  # [win32]
+  number: 2
 
   rpaths:
     - lib/R/lib/
@@ -25,20 +24,25 @@ build:
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('fortran') }}        # [unix]
-    - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('fortran') }}  # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+
   host:
     - r-base
 
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('KernSmooth')"  # [not win]
+    - $R -e "library('KernSmooth')"           # [not win]
     - "\"%R%\" -e \"library('KernSmooth')\""  # [win]
 
 about:
@@ -48,8 +52,14 @@ about:
     M.P. and Jones, M.C. (1995) "Kernel Smoothing".'
 
   license_family: MIT
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\MIT'  # [win]
 
 extra:
   recipe-maintainers:
+    - cbrueffer
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - dbast

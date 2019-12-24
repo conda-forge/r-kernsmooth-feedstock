@@ -7,7 +7,7 @@ Package license: Unlimited
 
 Feedstock license: BSD 3-Clause
 
-Summary: Functions for kernel smoothing (and density estimation) corresponding to the book:  Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Summary: Functions for kernel smoothing (and density estimation) corresponding to the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
 
 
 
@@ -176,11 +176,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@bgruening](https://github.com/bgruening/)
-* [@cbrueffer](https://github.com/cbrueffer/)
 * [@conda-forge/r](https://github.com/conda-forge/r/)
-* [@daler](https://github.com/daler/)
-* [@dbast](https://github.com/dbast/)
-* [@jdblischak](https://github.com/jdblischak/)
-* [@johanneskoester](https://github.com/johanneskoester/)
 

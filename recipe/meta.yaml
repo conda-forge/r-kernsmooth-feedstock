@@ -1,5 +1,4 @@
-{% set version = "2.23-16" %}
-
+{% set version = '2.23-16' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: KernSmooth_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/KernSmooth_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
@@ -17,26 +15,23 @@ source:
 build:
   merge_build_host: True  # [win]
   number: 0
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('fortran') }}  # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_fortran') }}        # [win]
+    - {{ compiler('fortran') }}        # [not win]
+    - {{ compiler('m2w64_fortran') }}  # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
-
   host:
     - r-base
-
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
@@ -49,18 +44,29 @@ test:
 about:
   home: https://CRAN.R-project.org/package=KernSmooth
   license: Unlimited
-  summary: 'Functions for kernel smoothing (and density estimation) corresponding to the book:  Wand,
-    M.P. and Jones, M.C. (1995) "Kernel Smoothing".'
-
+  summary: 'Functions for kernel smoothing (and density estimation) corresponding to the book:
+    Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".'
   license_family: MIT
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - cbrueffer
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - dbast
+
+# Package: KernSmooth
+# Priority: recommended
+# Version: 2.23-16
+# Date: 2019-10-15
+# Title: Functions for Kernel Smoothing Supporting Wand & Jones (1995)
+# Authors@R: c(person("Matt", "Wand", role = "aut", email = "Matt.Wand@uts.edu.au"), person("Cleve", "Moler", role = "ctb", comment = "LINPACK routines in src"), person("Brian", "Ripley", role = c("trl", "cre", "ctb"), email = "ripley@stats.ox.ac.uk", comment = "R port and updates"))
+# Depends: R (>= 2.5.0), stats
+# Suggests: MASS
+# Description: Functions for kernel smoothing (and density estimation) corresponding to the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+# License: Unlimited
+# ByteCompile: yes
+# NeedsCompilation: yes
+# Packaged: 2019-10-15 12:12:47 UTC; ripley
+# Author: Matt Wand [aut], Cleve Moler [ctb] (LINPACK routines in src), Brian Ripley [trl, cre, ctb] (R port and updates)
+# Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
+# Repository: CRAN
+# Date/Publication: 2019-10-15 12:16:11 UTC

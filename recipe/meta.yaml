@@ -1,4 +1,4 @@
-{% set version = "2.23-21" %}
+{% set version = "2.23-22" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/KernSmooth_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
-  sha256: 3d63cb18e213867f568a2bdadffa402d7581e0d44dabcb76bbe8b1ca40f21a8b
+  sha256: 76e044904606cab79c9edf4eae3ad63ac9d91a2962b44e063075b4b40e8574e9
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/

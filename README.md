@@ -3,24 +3,13 @@ About r-kernsmooth-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-kernsmooth-feedstock/blob/main/LICENSE.txt)
 
-
-About r-kernsmooth
-------------------
-
 Home: https://CRAN.R-project.org/package=KernSmooth
 
 Package license: Unlimited
 
 Summary: Functions for kernel smoothing (and density estimation) corresponding to the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
 
-About r-kernsmooth
-------------------
-
-Home: https://CRAN.R-project.org/package=KernSmooth
-
-Package license: Unlimited
-
-Summary: Functions for kernel smoothing (and density estimation) corresponding to the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".
+Development: https://github.com/cran/kernsmooth
 
 Current build status
 ====================

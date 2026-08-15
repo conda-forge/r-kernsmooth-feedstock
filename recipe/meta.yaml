@@ -1,4 +1,4 @@
-{% set version = "2.23-26" %}
+{% set version = "2.23-27" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/KernSmooth_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/KernSmooth/KernSmooth_{{ version }}.tar.gz
-  sha256: b465bdac197f7faa787e625412ae03d1b7c2c134b1c924cfeb775faf9c4da73e
+  sha256: d501066a63959bee97d1ce7c556cb90862b3261fa6fc1c3cf8e5b2cdea2cc70d
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
